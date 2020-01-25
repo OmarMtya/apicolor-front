@@ -3,16 +3,29 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HttpClientModule } from '@angular/common/http';
+import { CategoriasModule } from './categorias/categorias.module';
+import { HeaderComponent } from './shared/header/header.component';
+import { PaletaProyectoModule } from './paleta-proyecto/paleta-proyecto.module';
+import { CargandoComponent } from './shared/cargando/cargando.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    CategoriasModule,
+    PaletaProyectoModule,
+    SharedModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+  ],
+  bootstrap: [AppComponent],
+  exports: [
+  ]
 })
 export class AppModule { }

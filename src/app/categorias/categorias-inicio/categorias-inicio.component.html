@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-lg-8 col-md-12">
+    <div class="row">
+      <div class="col">
+
+        <div class="jumbotron jumbotron-fluid m-3">
+          <div class="container">
+            <h1 class="display-4">Lorem ipsum</h1>
+            <p class="lead">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ultricies cursus condimentum. Phasellus at nisl ut
+              est
+              viverra eleifend.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <app-subcategorias [categoriaSeleccionada]="categoriaSeleccionada"></app-subcategorias>
+      </div>
+    </div>
+
+  </div>
+  <div class="col-lg-4 col-md-12">
+    <app-categorias (seleccionado)="seleccionandoCategoria($event)"></app-categorias>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+.boxColor{
+  height: 150px;
+  width: 100%;
+  // font-size: 12px;
+}
+.headers-sticky{
+  position: sticky;
+  top:50px;
+  padding-top: 10px;
+  z-index: 2;
+  background-color: white;
+}
