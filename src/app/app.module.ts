@@ -11,12 +11,15 @@ import { CargandoComponent } from './shared/cargando/cargando.component';
 import { SharedModule } from './shared/shared.module';
 import { InsertarProyectoModule } from './insertar-proyecto/insertar-proyecto.module';
 import { RouterModule } from '@angular/router';
+import { MisProyectosComponent } from './mis-proyectos/mis-proyectos.component';
+import { MisProyectosModule } from './mis-proyectos/mis-proyectos.module';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    MisProyectosComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,6 +30,7 @@ import { RouterModule } from '@angular/router';
     SharedModule,
     InsertarProyectoModule,
     RouterModule,
+    MisProyectosModule
   ],
   providers: [
   ],

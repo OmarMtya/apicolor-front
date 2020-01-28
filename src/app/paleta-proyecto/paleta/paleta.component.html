@@ -1,9 +1,9 @@
 <app-cargando *ngIf="cargando"></app-cargando>
 <div *ngIf="!cargando" class="container">
 
-  <!-- <div class="alert alert-primary mt-3" role="alert">
+  <div class="alert alert-primary mt-3" role="alert">
     En base a las características de tu proyecto se han recolectado varias paletas de colores. El conjunto de colores debe de ser seleccionado para guardarlo como la paleta de color final.
-  </div> -->
+  </div>
 
   <div class="card">
     <div class="card-body">
@@ -24,7 +24,7 @@
       <h3>Paletas de aleatorias:</h3>
     </div>
   </div>
-  <div class="mt-4 mb-4 row d-flex justify-content-center" *ngFor="let paleta of colores.paletas">
+  <div class="mt-4 mb-4 row d-flex justify-content-center" *ngFor="let paleta of colores.paletas" (click)="paletaSeleccionada(paleta)" style="cursor: pointer;">
     <div *ngFor="let color of paleta" class="col-sm-12 col-md-2 m-0 p-0">
       <div class="boxColor d-flex justify-content-center align-items-center" [ngStyle]="{ 'background-color': color.hex.value }">
         <span [ngStyle]="{'color': color.contrast.value}">
@@ -39,7 +39,7 @@
       <h3>Paletas monocrómaticas:</h3>
     </div>
   </div>
-  <div *ngFor="let monocromatica of colores.monocromaticas" class="mt-4 mb-4 row d-flex justify-content-center">
+  <div *ngFor="let monocromatica of colores.monocromaticas" (click)="paletaSeleccionada(monocromatica.colors)" class="mt-4 mb-4 row d-flex justify-content-center" style="cursor: pointer;">
     <div *ngFor="let color of monocromatica.colors" class="col-sm-12 col-md-2 m-0 p-0">
       <div class="boxColor d-flex justify-content-center align-items-center" [ngStyle]="{ 'background-color': color.hex.value }">
         <span [ngStyle]="{'color': color.contrast.value}">
