@@ -1,1 +1,29 @@
-<p>proyecto-nuevo works!</p>
+<ng-container *ngIf="categoria">
+
+  <form (ngSubmit)="postProyecto(form)" #form="ngForm">
+    <div class="card">
+      <div class="card-body">
+
+        <div class="form-group">
+          <label for="nombreProyecto">Nombre del proyecto</label>
+          <input id="nombreProyecto" required type="text" ngModel name="nombre" autocomplete="off" minlength="3" class="form-control" placeholder="Nombre del proyecto">
+        </div>
+        <div class="form-group">
+          <label for="nombreProyecto">Descripción</label>
+          <textarea name="descripcion" required class="form-control" autocomplete="off" maxlength="120" minlength="10" ngModel id="descripcion"></textarea>
+        </div>
+
+        <button type="submit" *ngIf="form.valid" class="btn btn-success btn-block">Enviar</button>
+      </div>
+      <div class="card-footer text-right">
+        <span class="text-muted">
+          {{categoria.nombre}}, {{ subcategoria }}
+        </span>
+      </div>
+    </div>
+  </form>
+
+</ng-container>
+
+
+

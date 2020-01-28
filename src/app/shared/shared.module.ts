@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CargandoComponent } from './cargando/cargando.component';
 import { HeaderComponent } from './header/header.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -11,7 +12,8 @@ import { HeaderComponent } from './header/header.component';
     CargandoComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ],
   exports: [
     CargandoComponent,

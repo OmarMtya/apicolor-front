@@ -4,6 +4,7 @@ import { Color } from '../../../models/color';
 import { Monocromatica } from '../../../models/monocromatica';
 import { ProyectosService } from '../../shared/proyectos.service';
 import { Proyecto } from '../../../models/proyecto';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-paleta',
@@ -16,13 +17,14 @@ export class PaletaComponent implements OnInit {
   public proyecto: Proyecto;
   public cargando = true;
 
-  constructor(private paletaService: PaletaService, private proyectoService: ProyectosService) { }
+  constructor(private activeRouter: ActivatedRoute, private paletaService: PaletaService, private proyectoService: ProyectosService) { }
 
   ngOnInit() {
+    var idProyecto = this.activeRouter.snapshot.paramMap.get('id');
     Promise.all(
       [
-        this.paletaService.getPaleta('5e2249d5fe1186c70261d864'),
-        this.proyectoService.getProyecto('5e2249d5fe1186c70261d864')
+        this.paletaService.getPaleta(idProyecto),
+        this.proyectoService.getProyecto(idProyecto)
       ]
     ).then((data: any[]) => {
       this.colores = data[0];
