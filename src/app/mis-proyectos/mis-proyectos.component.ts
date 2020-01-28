@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Proyecto } from '../../models/proyecto';
 import { Color } from '../../models/color';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-mis-proyectos',
@@ -11,7 +12,7 @@ export class MisProyectosComponent implements OnInit {
 
   proyectos: Proyecto[];
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
     this.proyectos = JSON.parse(localStorage.getItem('proyectos'));

@@ -30,6 +30,9 @@ export class ProyectoNuevoComponent implements OnInit {
   }
 
   postProyecto(formulario: NgForm){
+    if(!formulario.valid){
+      return;
+    }
     console.log(formulario.value);
     this.insertarProyecto.insertarProyecto(
       {

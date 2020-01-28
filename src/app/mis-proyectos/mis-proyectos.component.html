@@ -1,38 +1,47 @@
 <h4>Mis proyectos</h4>
-<div class="alert alert-warning mt-3" role="alert">
-  A continuación se muestran tus proyectos. Las paletas de colores que seleccionaste al momento de registrar tu proyecto dentro de la plataforma se encuentran respectivamente en la parte inferior.
-</div>
-<div class="alert alert-success mt-3" role="alert">
-  ¡Para seleccionar un color <b>haz click</b> en él!
-</div>
 
-<div class="card mt-2 mb-2" *ngFor="let proyecto of proyectos.reverse()">
-  <div class="card-body">
-    <span style="position: absolute; top: 0; right: 0; margin: 20px;">
-      <span class="badge badge-info mr-2">
-          {{ proyecto.categoria.nombre }}
-      </span>
-      <span class="badge badge-success">
-          {{ proyecto.subcategoria }}
-      </span>
-    </span>
-
-    <h5> {{ proyecto.nombre }} </h5>
-    <span>
-      {{ proyecto.descripcion }}
-    </span>
+<ng-container *ngIf="!proyectos">
+  <div class="alert alert-warning mt-3" role="alert">
+    No tienes ningún proyecto todavía. <a href="#" [routerLink]="['/']">Crea uno</a>
+  </div>
+</ng-container>
+<ng-container *ngIf="proyectos">
+  <div class="alert alert-warning mt-3" role="alert">
+    A continuación se muestran tus proyectos. Las paletas de colores que seleccionaste al momento de registrar tu proyecto dentro de la plataforma se encuentran respectivamente en la parte inferior.
+  </div>
+  <div class="alert alert-success mt-3" role="alert">
+    ¡Para seleccionar un color <b>haz click</b> en él!
   </div>
 
-  <div class="mt-4 mb-4 row d-flex justify-content-center">
-    <div *ngFor="let color of proyecto.paleta" class="col-sm-12 col-md-2 m-0 p-0">
-      <div class="boxColor d-flex justify-content-center align-items-center" (mouseleave)="mostrarColor(color, box, false)" (mouseenter)="mostrarColor(color, box, true)" (click)="copiarColor(color, box)" style="cursor: pointer;" [ngStyle]="{ 'background-color': color.hex.value }">
-        <span [ngStyle]="{'color': color.contrast.value}" #box>
-          {{ color.name.value }}
+  <div class="card mt-2 mb-2" *ngFor="let proyecto of proyectos.reverse()">
+    <div class="card-body">
+      <span style="position: absolute; top: 0; right: 0; margin: 20px;">
+        <span class="badge badge-info mr-2">
+            {{ proyecto.categoria.nombre }}
         </span>
+        <span class="badge badge-success">
+            {{ proyecto.subcategoria }}
+        </span>
+      </span>
+
+      <h5> {{ proyecto.nombre }} </h5>
+      <span>
+        {{ proyecto.descripcion }}
+      </span>
+    </div>
+
+    <div class="mt-4 mb-4 row d-flex justify-content-center">
+      <div *ngFor="let color of proyecto.paleta" class="col-sm-12 col-md-2 m-0 p-0">
+        <div class="boxColor d-flex justify-content-center align-items-center" (mouseleave)="mostrarColor(color, box, false)" (mouseenter)="mostrarColor(color, box, true)" (click)="copiarColor(color, box)" style="cursor: pointer;" [ngStyle]="{ 'background-color': color.hex.value }">
+          <span [ngStyle]="{'color': color.contrast.value}" #box>
+            {{ color.name.value }}
+          </span>
+        </div>
       </div>
     </div>
+
   </div>
+</ng-container>
 
 
 
-</div>
