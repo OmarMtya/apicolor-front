@@ -15,7 +15,8 @@ export class MisProyectosComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit() {
-    this.proyectos = JSON.parse(localStorage.getItem('proyectos'));
+    const proyectos = (JSON.parse(localStorage.getItem('proyectos'))).reverse();
+    this.proyectos = proyectos;
     console.log(this.proyectos);
   }
 
